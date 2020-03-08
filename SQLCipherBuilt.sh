@@ -20,13 +20,15 @@ cd ./tmp/${VERSION}/
 
 curl -OL https://github.com/sqlcipher/sqlcipher/archive/v${VERSION}.tar.gz
 tar -xvf v${VERSION}.tar.gz
-cd ./tmp/${VERSION}/sqlcipher-${VERSION}/
+cd sqlcipher-${VERSION}
 
 #Compile
 
 make clean
+
 ./configure \
 --enable-tempstore=no \
+--enable-load-extension \
 --disable-tcl \
 --with-crypto-lib=commoncrypto \
 CFLAGS="\
@@ -38,6 +40,22 @@ LDFLAGS="\
 -framework Security \
 -framework Foundation \
 "
+
+#./configure \
+#--enable-tempstore=no \
+#--enable-load-extension \
+#--disable-tcl \
+#--with-crypto-lib=commoncrypto \
+#CFLAGS="\
+#-DSQLITE_HAS_CODEC \
+#-arch x86_64 \
+#-mmacos-version-min=10.10 \
+#" \
+#LDFLAGS="\
+#-framework Security \
+#-framework Foundation \
+#"
+
 make
 
 #Copy result
@@ -48,8 +66,9 @@ cd ..
 
 mkdir ./${VERSION}
 
-cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.0.dylib ./${VERSION}sqlcipher.bundle
-open ./${VERSION}sqlcipher.bundle
+#cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.0.dylib ./${VERSION}/
+cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.0.dylib ./${VERSION}/sqlcipher.bundle
+open ./${VERSION}
 
 #Clean 
 

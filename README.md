@@ -6,7 +6,8 @@ SqlCipher4Unity3D_macOS build bundle for OSX
 
 You need :
 - be on macOS
-- install xCode (from AppleStore)
+- install xcode
+- install xcode as command
 
 ## Compile SQLCipher 4.3.0
 Open terminal and create a dir to work.

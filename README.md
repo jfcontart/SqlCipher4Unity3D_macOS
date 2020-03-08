@@ -1,6 +1,6 @@
 # SqlCipher4Unity3D_macOS
 
-SqlCipher4Unity3D_macOS build bundle for OSX
+SqlCipher4Unity3D_macOS build bundle for OSX. Use with https://github.com/netpyoung/SqlCipher4Unity3D .
 
 ## MacOS
 

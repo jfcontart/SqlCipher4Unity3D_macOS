@@ -1,16 +1,24 @@
 # SqlCipher4Unity3D_macOS
 
-SqlCipher4Unity3D_macOS build bundle for OSX
+SqlCipher4Unity3D build bundle for macOS© (OSX). Use with https://github.com/netpyoung/SqlCipher4Unity3D .
 
-## MacOS
+ # macOS©
 
 You need :
 - be on macOS
 - install xcode
 - install xcode as command
 
-## Compile SQLCipher 4.3.0
-Open terminal and create a dir to work.
+## Use the SQLCipherBuilt.sh
+
+Use the SQLCipherBuilt.sh :
+```
+cd <this directory>
+./SQLCipher.sh <version example:4.3.0>
+```
+
+## Compile SQLCipher 4.3.0 from sources
+Open terminal and create directory to work.
 ```
 mkdir /tmp/SQLCipherMacOS
 cd /tmp/SQLCipherMacOS/
@@ -66,7 +74,7 @@ rm -r /tmp/SQLCipherMacOS
 
 ## Copy sqlcipher.bundle in project
 
-Copy in "MacOS" folder, select file and check in "Inspector" :
+Copy in "MacOS" folder in Unity3D, select file and check in "Inspector" :
 
 On select **platforms for plugin**
 - Set "Editor" - yes

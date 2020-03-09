@@ -66,7 +66,7 @@ cd ..
 
 mkdir ./${VERSION}
 
-#cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.0.dylib ./${VERSION}/
+#cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.a /${VERSION}/
 cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.0.dylib ./${VERSION}/sqlcipher.bundle
 open ./${VERSION}
 

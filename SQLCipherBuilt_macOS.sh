@@ -9,6 +9,20 @@ fi
 
 VERSION=$1
 
+SQLITE_CFLAGS=" \
+-DSQLITE_HAS_CODEC \
+-DSQLITE_THREADSAFE=1 \
+-DSQLITE_TEMP_STORE=2 \
+"
+
+LDFLAGS="\
+-framework Security \
+-framework Foundation \
+"
+CFLAGS="\
+-arch x86_64 \
+-mmacos-version-min=10.10 \
+"
 #prepare dir to compile
 
 mkdir ./tmp
@@ -27,17 +41,13 @@ cd sqlcipher-${VERSION}
 make clean
 
 ./configure \
---enable-tempstore=no \
---enable-load-extension \
+--with-pic \
 --disable-tcl \
-CFLAGS="\
--arch x86_64 \
--mmacos-version-min=10.10 \
-" \
-LDFLAGS="\
--framework Security \
--framework Foundation \
-"
+--enable-tempstore=yes \
+--enable-threadsafe=yes \
+--with-crypto-lib=commoncrypto \
+CFLAGS="${CFLAGS} ${SQLITE_CFLAGS}" \
+LDFLAGS="${LDFLAGS}"
 
 make
 
@@ -49,11 +59,11 @@ cd ..
 
 mkdir ./${VERSION}
 mkdir ./${VERSION}/macOS
-rm  ./${VERSION}/macOS/libsqlcipher.0.dylib
+rm  ./${VERSION}/macOS/sqlcipher.bundle
 
 cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.0.dylib ./${VERSION}/macOS/sqlcipher.bundle
 
-#open ./${VERSION}
+open ./${VERSION}
 
 #Clean 
 

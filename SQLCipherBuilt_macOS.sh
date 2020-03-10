@@ -30,9 +30,7 @@ make clean
 --enable-tempstore=no \
 --enable-load-extension \
 --disable-tcl \
---with-crypto-lib=commoncrypto \
 CFLAGS="\
--DSQLITE_HAS_CODEC \
 -arch x86_64 \
 -mmacos-version-min=10.10 \
 " \
@@ -40,21 +38,6 @@ LDFLAGS="\
 -framework Security \
 -framework Foundation \
 "
-
-#./configure \
-#--enable-tempstore=no \
-#--enable-load-extension \
-#--disable-tcl \
-#--with-crypto-lib=commoncrypto \
-#CFLAGS="\
-#-DSQLITE_HAS_CODEC \
-#-arch x86_64 \
-#-mmacos-version-min=10.10 \
-#" \
-#LDFLAGS="\
-#-framework Security \
-#-framework Foundation \
-#"
 
 make
 
@@ -65,12 +48,15 @@ cd ..
 cd .. 
 
 mkdir ./${VERSION}
+mkdir ./${VERSION}/macOS
+rm  ./${VERSION}/macOS/libsqlcipher.0.dylib
 
-#cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.a /${VERSION}/
-cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.0.dylib ./${VERSION}/sqlcipher.bundle
-open ./${VERSION}
+cp ./tmp/${VERSION}/sqlcipher-${VERSION}/.libs/libsqlcipher.0.dylib ./${VERSION}/macOS/sqlcipher.bundle
+
+#open ./${VERSION}
 
 #Clean 
 
 rm -r ./tmp/
+
 

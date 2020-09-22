@@ -32,8 +32,11 @@ cd ./tmp/${VERSION}/
 
 #Download sources files from SQLCipher
 
-curl -OL https://github.com/sqlcipher/sqlcipher/archive/v${VERSION}.tar.gz
-tar -xvf v${VERSION}.tar.gz
+#curl -OL https://github.com/sqlcipher/sqlcipher/archive/v${VERSION}.tar.gz
+#tar -xvf v${VERSION}.tar.gz
+#cd sqlcipher-${VERSION}
+curl -OL https://github.com/sqlcipher/sqlcipher/archive/v${VERSION}.zip
+tar -xvf v${VERSION}.zip
 cd sqlcipher-${VERSION}
 
 #Compile

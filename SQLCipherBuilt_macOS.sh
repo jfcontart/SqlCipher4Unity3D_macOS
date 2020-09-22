@@ -3,7 +3,7 @@
 if [ "$#" -ne 1 ]
 then
     echo "Usage:"
-    echo "./SQLCipherBuilt.sh <VERSION>"
+    echo "./SQLCipherBuilt_macOS.sh <VERSION>"
     exit 1
 fi
 

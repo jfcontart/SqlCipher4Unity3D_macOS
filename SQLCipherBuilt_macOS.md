@@ -5,6 +5,22 @@
 - run : 
 
 ```
+./SQLCipherBuilt_Apple.sh 4.4.3
+```
+
+```
+./SQLCipherBuilt_Apple.sh 4.4.2
+```
+
+```
+./SQLCipherBuilt_Apple.sh 4.4.1
+```
+
+```
+./SQLCipherBuilt_Apple.sh 4.4.0
+```
+
+```
 ./SQLCipherBuilt_macOS.sh 4.3.0
 ```
 
